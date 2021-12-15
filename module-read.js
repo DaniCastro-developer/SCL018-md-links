@@ -9,9 +9,9 @@ const readFileData = (arg) => {
     if(ext==='.md'){
       fs.readFile(arg,'utf8', (err, data)=>{
         resolve(data);
-        reject(err);
       });
     }
+    reject('this file is not .md');
   })
 }
 
