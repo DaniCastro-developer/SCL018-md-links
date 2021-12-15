@@ -1,5 +1,10 @@
-// prueba de clonación mar 07 de dic
+const mymodule = require('./module-read.js');
+const arg = 'hola.md';
 
-module.exports = () => {
-  // ...
-};
+if (require.main === module){
+    mymodule.readFileData(arg)
+    .then(r=>{
+        console.log(r);
+    })
+    .catch(err=>console.log("This is why this promise is failing: " + err))
+}
