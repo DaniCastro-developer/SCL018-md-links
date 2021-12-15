@@ -1,5 +1,5 @@
 const mymodule = require('./module-read.js');
-const arg = 'lorea.js';
+const arg = 'hola.md';
 
 if (require.main === module){
     mymodule.readFileData(arg)
