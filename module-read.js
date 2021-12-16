@@ -10,8 +10,9 @@ const readFileData = (arg) => {
       fs.readFile(arg,'utf8', (err, data)=>{
         resolve(data);
       });
-    } else if (ext !== '.md')
+    } else if (ext !== '.md') {
     reject('this file is not .md');
+    } 
   })
 }
 
