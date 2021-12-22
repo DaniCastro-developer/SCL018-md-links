@@ -26,6 +26,8 @@
   "homepage": "https://github.com/DaniCastro-developer/SCL018-md-links#readme",
   "dependencies": {
     "axios": "^0.24.0",
+    "markdown-link-extractor": "^1.3.0",
+    "marked": "^4.0.8",
     "node-fetch": "^3.1.0"
   },
   "devDependencies": {

@@ -1,4 +1,4 @@
-const mymodule = require('./module-read.js');
+const mymodule = require('./module-read');
 const arg = 'hola.md';
 
 if (require.main === module){
