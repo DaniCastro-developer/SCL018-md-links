@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import fetch from 'node-fetch';
+
 /* const path = require('path'); */
 import  markdowndLinkExtractor from 'markdown-link-extractor';
 
@@ -40,12 +41,10 @@ export const validate = (links) => {
           link.status = res.status;
           link.response = "fail";
           resolve(link);
-          console.table({link})
         } else {
           link.status = res.status;
           link.response = res.statusText;
           resolve(link); 
-          console.table({link})
         }
       })
       .catch(err => {
