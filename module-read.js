@@ -1,11 +1,12 @@
-const fs = require('fs');
-/* const fetch = require('node-fetch'); */
-const path = require('path');
-const markdowndLinkExtractor = require('markdown-link-extractor'); 
+import fs from 'fs';
+import path from 'path';
+import fetch from 'node-fetch';
+/* const path = require('path'); */
+import  markdowndLinkExtractor from 'markdown-link-extractor';
 
 
 
-const readFileData = (arg) => {
+export const readFileData = (arg) => {
   return new Promise((resolve, reject) => {
     
       fs.readFile(arg, 'utf8', (err, data) => { 
@@ -13,7 +14,7 @@ const readFileData = (arg) => {
         let links = markdowndLinkExtractor(data,true);
         const linksArray = [];
           links.forEach((details)=>{ 
-              console.table({details})
+              /* console.table({details}) */
               linksArray.push(details);
 
               if (ext === '.md') {         
@@ -30,9 +31,31 @@ const readFileData = (arg) => {
     .catch(err => console.log('Ingresa un archivo con extension .md', err));
       }
 
+export const validate = (links) => {
+  return Promise.all(links.map(link => {
+    return new Promise((resolve, reject) => {
+      fetch(link.href)
+      .then(res => {
+        if (res.status > 400) {
+          link.status = res.status;
+          link.response = "fail";
+          resolve(link);
+          console.table({link})
+        } else {
+          link.status = res.status;
+          link.response = res.statusText;
+          resolve(link); 
+          console.table({link})
+        }
+      })
+      .catch(err => {
+          link.status = null;
+          link.response = "fail"
+          resolve(link);
+      });
+    });
+  }));
+};
 
-module.exports = {
-  readFileData,
-}
 
 
