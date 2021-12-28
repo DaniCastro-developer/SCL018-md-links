@@ -1,18 +1,29 @@
+#!/usr/bin/env node
+
+import figlet from 'figlet';
+
+figlet('Welcome dc-md-links!!', function(err, data) {
+  if (err) {
+    console.log('Something went wrong...');
+    console.dir(err);
+    return;
+  }
+  console.log(data);
+});
+
+
 import chalk from 'chalk';
 /* import path from 'path'; */
 import {mdLinks} from './module-read.js';
 
 
-/* const arg = 'hola.md'; */
-
 // Prueba con CLI
-/* const pathFile = process.argv[2];
-const validateOption = process.argv[3]; */
+const pathFile = process.argv[2];
+const validateOption = process.argv[3];
 
-// Prueba con  Javascript API
-
+/* // Prueba con  Javascript API
 const pathFile = 'hola.md';
-const validateOption = ' ';
+const validateOption = ' '; */
 
 
 const options = {
