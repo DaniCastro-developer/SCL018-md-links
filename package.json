@@ -22,7 +22,7 @@
   "author": "Daniela Castro Salazar",
   "license": "ISC",
   "bin": {
-    "md-links": "./index.js"
+    "md-links": "./index.js" 
   },
   "bugs": {
     "url": "https://github.com/DaniCastro-developer/SCL018-md-links/issues"
