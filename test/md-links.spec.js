@@ -1,4 +1,4 @@
-const mdLinks = require('../');
+import {mdLinks} from './module-read.js';
 
 
 describe('mdLinks', () => {

@@ -4,13 +4,14 @@
 ***
 ## **¿Qué es dc-md-links?**
 
-dc-md-links es una herramienta de línea de comando (CLI) así como una librería en JavaScript, la cual lee un archivo con extensión md y retorna una array con los links que éste contiene. Además, se puede agregar la opción de validar estos links y recibir el estado de cada uno de ellos.
+[**dc-md-links**](https://www.npmjs.com/package/dc-md-links)  es una herramienta de línea de comando (CLI), como también una librería en JavaScript, la cual lee un archivo con extensión md y retorna una array con los links que éste contiene. Además, puedes agregar la opción de validar estos links y recibir el estado de cada uno de ellos.
 
 ***
 ## **Istalación**
 
+```sh
 npm install dc-md-links
-
+```
 ## **¿Cómo usar?**
 
 ### En el archivo JS:
@@ -19,7 +20,9 @@ const mdlinks = require('dc-md-links');
 
 ### En la terminal:
 
-md-links <file> [options]
+```sh
+md-links < name-file > [options]
+```
 
 ## **¿Cómo funciona en JavaScript API?**
 
@@ -100,7 +103,7 @@ $ md-links example.md --validate
 
 
 ***
-## Información técnica
+## **Información técnica**
 
 ### Dependencias 
 * node.js: 16.13.1
@@ -116,12 +119,10 @@ $ md-links example.md --validate
 <img src= files/flow.jpeg>
 
 
-* Organización - issues y milestones
-
-[ Github Project MD-links DC ](https://github.com/DaniCastro-developer/SCL018-md-links/projects/1)
+* Organización - issues y milestones [Github Project MD-links DC](https://github.com/DaniCastro-developer/SCL018-md-links/projects/1)
 
 
 ***
-## Autora
+## **Autora**
 
 *Daniela Castro Salazar*
