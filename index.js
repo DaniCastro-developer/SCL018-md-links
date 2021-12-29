@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 
 import figlet from 'figlet';
+import chalk from 'chalk';
+/* import path from 'path'; */
+import {mdLinks} from './module-read.js';
 
 figlet('Welcome dc-md-links!!', function(err, data) {
   if (err) {
@@ -10,11 +13,6 @@ figlet('Welcome dc-md-links!!', function(err, data) {
   }
   console.log(data);
 });
-
-
-import chalk from 'chalk';
-/* import path from 'path'; */
-import {mdLinks} from './module-read.js';
 
 
 // Prueba con CLI

@@ -71,7 +71,7 @@ export const mdLinks = (path, option) => {
                 });
           });
     } else {
-      reject('¿Qué deseas hacer? Intenta con:\n --validate\n'(err));
+      reject((err));
     };
   });
 };
