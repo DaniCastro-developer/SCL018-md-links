@@ -7,7 +7,7 @@
 [**dc-md-links**](https://www.npmjs.com/package/dc-md-links)  es una herramienta de línea de comando (CLI), como también una librería en JavaScript, la cual lee un archivo con extensión md y retorna una array con los links que éste contiene. Además, puedes agregar la opción de validar estos links y recibir el estado de cada uno de ellos.
 
 ***
-## **Istalación**
+## **Instalación**
 
 ```sh
 npm install dc-md-links
@@ -22,55 +22,6 @@ const mdlinks = require('dc-md-links');
 
 ```sh
 md-links < name-file > [options]
-```
-
-## **¿Cómo funciona en JavaScript API?**
-
-#### `mdLinks(path, options)`
-
-##### Argumentos
-
-* `path`:  nombre del **archivo** a analizar. Ejemplo: README.md.
-* `options`: Un objeto con **únicamente** la siguiente propiedad:
-  - `validate`: Booleano que determina si se desea validar los links
-    encontrados.
-
-##### Valor de retorno
-
-La función **retorna una promesa** (`Promise`) que **resuelva a un arreglo**
-(`Array`) de objetos (`Object`), donde cada objeto representa un link y contiene
-las siguientes propiedades:
-
-Con `validate:false` :
-
-* `href`: URL encontrada.
-* `text`: Texto que aparecía dentro del link (`<a>`).
-* `type`: Tipo de URL.
-
-Con `validate:true` :
-
-* `href`: URL encontrada.
-* `text`: Texto que aparecía dentro del link (`<a>`).
-* `type`: Tipo de URL.
-* `status`: Código de respuesta HTTP.
-* `ok`: Mensaje `fail` en caso de fallo u `ok` en caso de éxito.
-
-#### Ejemplo (resultados como comentarios)
-
-```js
-const mdLinks = require("md-links");
-
-mdLinks('example.md')
-  .then(links => {
-    // => [{ type, href, text }, ...]
-  })
-  .catch(console.error);
-
-mdLinks("example.md", { validate: true })
-  .then(links => {
-    // => [{ type, href, text, status, ok }, ...]
-  })
-  .catch(console.error);
 ```
 
 ## **¿Cómo funciona en CLI (Command Line Interface - Interfaz de Línea de Comando)?**
