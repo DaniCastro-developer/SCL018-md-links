@@ -1,0 +1,1 @@
+Est es un archivo de prueba para evaluar documentos .md que no contienen links.

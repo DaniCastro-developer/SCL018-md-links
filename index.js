@@ -36,13 +36,13 @@ if (validateOption === '--validate') {
 
 
 mdLinks(pathFile, [validateOption])
-    .then(links => {
+    .then((links) => {
       if (options.validate === false) {
-        links.map(link => {
+        links.map((link) => {
           console.log(chalk.green(link.type) + ' ' + chalk.yellow(link.href) + ' ' + chalk.blue(link.text));
         });
       } else if (options.validate === true) {
-        links.map(link => {
+        links.map((link) => {
           if (link.response === 'OK') {
             console.log(chalk.yellow(link.type)+' '+ chalk.magenta(link.href)+" "+chalk.bgGreen(link.status)+" "+chalk.bgGreen(link.response));
           } else if (link.response === 'fail') {
@@ -51,6 +51,6 @@ mdLinks(pathFile, [validateOption])
         });
       }
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(chalk.magenta(err));
     });

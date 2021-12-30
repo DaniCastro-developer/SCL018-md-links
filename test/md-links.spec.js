@@ -1,4 +1,4 @@
-import {mdLinks} from '../module-read.js';
+import {mdLinks, readFileData} from '../module-read.js';
 const path = 'hola.md';
 const validateOption = ' ';
 const validateOptionTwo = '--validate';
@@ -11,8 +11,16 @@ describe('mdLinks', () => {
 });
 
 
+/* test('should return false if ext file isnot md', () => {
+  const md = readFileData('hola.js');
+  return readFileData(md).then((res) => {
+    expect(res).toBe(err);
+  });
+}); */
+
+
 test('debería retornar arreglo de links', ()=> {
-  return mdLinks(path, validateOption).then(res => expect(res).toEqual(
+  return mdLinks(path, validateOption).then((res) => expect(res).toEqual(
       [{
         'href': 'https://www.npmjs.com/',
         'raw': 'https://www.npmjs.com/',
@@ -56,7 +64,7 @@ test('debería retornar arreglo de links', ()=> {
 });
 
 test('debería retornar arreglo de links y validar', ()=> {
-  return mdLinks(path, [validateOptionTwo]).then(res => expect(res).toEqual([
+  return mdLinks(path, [validateOptionTwo]).then((res) => expect(res).toEqual([
     {
       'href': 'https://www.npmjs.com/',
       'raw': 'https://www.npmjs.com/',
