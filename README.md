@@ -36,8 +36,7 @@ $ md-links example.md
 ```
 <img src=files/md-links.png>
 
-El comportamiento por defecto no debe validar si las URLs responden ok o no,
-solo debe identificar el archivo markdown, analizarlo e imprimir los links que vaya encontrando, junto con el tipo, texto y href.
+El comportamiento por defecto debe identificar el archivo markdown, analizarlo e imprimir los links que vaya encontrando, junto con el tipo, texto y href.
 
 ### Option **validate**
 

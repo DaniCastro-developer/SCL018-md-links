@@ -12,12 +12,16 @@ describe('mdLinks', () => {
 });
 
 // revisar función error
-it('should return false if ext file isnot md', () => {
+/* it('should return false if ext file isnot md', () => {
   const md = 'hola.js';
   return mdLinks(md, validateOption).then((res) => expect(res)
       .rejects.toThrow('this file is not .md '));
-});
+}); */
 
+it('should return false if ext file isnot md', () => {
+  const md = 'hola.js';
+  expect(mdLinks(md, validateOption)).rejects.toThrow('this file is not .md ');
+});
 
 test('debería retornar arreglo de links', ()=> {
   return mdLinks(path, validateOption).then((res) => expect(res).toEqual(
