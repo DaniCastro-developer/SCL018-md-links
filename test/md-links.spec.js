@@ -1,5 +1,6 @@
-import {mdLinks, readFileData} from '../module-read.js';
+import {mdLinks} from '../module-read.js';
 const path = 'hola.md';
+
 const validateOption = ' ';
 const validateOptionTwo = '--validate';
 
@@ -10,13 +11,12 @@ describe('mdLinks', () => {
   });
 });
 
-
-/* test('should return false if ext file isnot md', () => {
-  const md = readFileData('hola.js');
-  return readFileData(md).then((res) => {
-    expect(res).toBe(err);
-  });
-}); */
+// revisar función error
+it('should return false if ext file isnot md', () => {
+  const md = 'hola.js';
+  return mdLinks(md, validateOption).then((res) => expect(res)
+      .rejects.toThrow('this file is not .md '));
+});
 
 
 test('debería retornar arreglo de links', ()=> {

@@ -5,27 +5,26 @@ import fetch from 'node-fetch';
 /* const path = require('path'); */
 import markdowndLinkExtractor from 'markdown-link-extractor';
 
+// función que lee el documento y extrae los links
 export const readFileData = (arg) => {
   return new Promise((resolve, reject) => {
     fs.readFile(arg, 'utf8', (err, data) => {
       const ext = path.extname(arg);// leer ruta del documento y trabajarla
+      if (ext !== '.md') {
+        reject(new Error('this file is not .md '));
+      };
+
       const links = markdowndLinkExtractor(data, true);
       const linksArray = [];
       links.forEach((details) => {
-        /* console.table({details}) */
         linksArray.push(details);
-        if (ext === '.md') {
-          resolve(linksArray);
-        } else if (ext !== '.md') {
-          reject(new Error('this file is not .md' + err));
-        }
+        resolve(linksArray);
       });
     });
   });
-  // .then(file => console.log(file))
-/*  .catch(err => console.log('Ingresa un archivo con extension .md', err)); */
 };
 
+// validar links --validate
 export const validate = (links) => {
   return Promise.all(links.map((link) => {
     return new Promise((resolve, reject) => {
@@ -51,6 +50,7 @@ export const validate = (links) => {
 };
 
 
+// función md-links
 export const mdLinks = (path, option) => {
   return new Promise((resolve, reject) => {
     if (option[0] !== '--validate') {
@@ -70,7 +70,7 @@ export const mdLinks = (path, option) => {
                 });
           });
     } else {
-      reject((err));
+      reject(new Error('there are no links in the file' + err));
     };
   });
 };
