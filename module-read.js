@@ -1,9 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import fetch from 'node-fetch';
+import {marked} from 'marked';
 
-/* const path = require('path'); */
-import markdowndLinkExtractor from 'markdown-link-extractor';
 
 // función que lee el documento y extrae los links
 export const readFileData = (arg) => {
@@ -13,13 +12,33 @@ export const readFileData = (arg) => {
       if (ext !== '.md') {
         reject(new Error('this file is not .md '));
       };
+      const links = [];
+      const renderer = new marked.Renderer();
+      renderer.link = (href) => {
+        if (!href.startsWith('#')) {
+          links.push({
+            text: href,
+            href: href,
+            type: 'link',
+          });
+        };
+      };
 
-      const links = markdowndLinkExtractor(data, true);
-      const linksArray = [];
-      links.forEach((details) => {
-        linksArray.push(details);
-        resolve(linksArray);
-      });
+      renderer.image = function(href) {
+        if (!href.startsWith('#')) {
+          href = href.replace(/ =\d*%?x\d*%?$/, '');
+          links.push({
+            href: href,
+            text: href,
+            type: 'image',
+          });
+        };
+      };
+      marked(data, {renderer: renderer});
+      if (links.length === 0) {
+        reject(new Error('no links found'));
+      }
+      resolve(links);
     });
   });
 };
@@ -70,8 +89,7 @@ export const mdLinks = (path, option) => {
                 });
           });
     } else {
-      reject(new Error('there are no links in the file' + err));
+      reject(err);
     };
   });
 };
-

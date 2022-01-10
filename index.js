@@ -5,15 +5,6 @@ import chalk from 'chalk';
 /* import path from 'path'; */
 import {mdLinks} from './module-read.js';
 
-figlet('Welcome dc-md-links!!', function(err, data) {
-  if (err) {
-    console.log('Something went wrong...');
-    console.dir(err);
-    return;
-  }
-  console.log(data);
-});
-
 
 // Prueba con CLI
 const pathFile = process.argv[2];
@@ -37,6 +28,7 @@ if (validateOption === '--validate') {
 
 mdLinks(pathFile, [validateOption])
     .then((links) => {
+      console.log(figlet.textSync('Welcome dc-md-links!!'));
       if (options.validate === false) {
         links.map((link) => {
           console.log(chalk.green(link.type) + ' ' + chalk.yellow(link.href) + ' ' + chalk.blue(link.text));

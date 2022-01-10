@@ -59,7 +59,7 @@ $ md-links example.md --validate
 * node.js: 16.13.1
 * chalk: 5.0.0
 * figlet: 1.5.2
-* markdown-link-extractor: 1.3.0
+* marked: 4.0.8
 * node-fetch: 3.1.0
 
 ### Planificación
