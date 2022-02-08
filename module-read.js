@@ -20,6 +20,7 @@ export const readFileData = (arg) => {
             text: href,
             href: href,
             type: 'link',
+            file: arg,
           });
         };
       };
@@ -31,6 +32,7 @@ export const readFileData = (arg) => {
             href: href,
             text: href,
             type: 'image',
+            file: arg,
           });
         };
       };
